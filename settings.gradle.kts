@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Rawg Games"
 include(":app")
+include(":core")
