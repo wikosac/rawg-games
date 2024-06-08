@@ -28,4 +28,8 @@ dependencies {
     implementation(libs.net.zetetic.android.database.sqlcipher)
     implementation(libs.androidx.sqlite.ktx)
 
+    // Data
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
 }

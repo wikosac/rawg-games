@@ -2,23 +2,24 @@ package com.wikosac.core.domain.usecase
 
 import com.wikosac.core.domain.model.Game
 import com.wikosac.core.domain.repository.GameRepository
+import com.wikosac.core.util.Resource
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class GameUseCaseImpl @Inject constructor(private val gameRepository: GameRepository): GameUseCase {
-    override fun getGamesList(): Flow<List<Game>> {
+    override fun getGamesList(): Flow<Resource<List<Game>>> {
+        return gameRepository.getGamesList()
+    }
+
+    override fun getDetailGame(id: Int): Flow<Resource<Game>> {
         TODO("Not yet implemented")
     }
 
-    override fun getDetailGame(id: Int): Flow<Game> {
+    override fun searchGame(keyword: String): Flow<Resource<List<Game>>> {
         TODO("Not yet implemented")
     }
 
-    override fun searchGame(keyword: String): Flow<List<Game>> {
-        TODO("Not yet implemented")
-    }
-
-    override fun getWishlist(): Flow<List<Game>> {
+    override fun getWishlist(): Flow<Resource<List<Game>>> {
         TODO("Not yet implemented")
     }
 
@@ -33,10 +34,10 @@ class GameUseCaseImpl @Inject constructor(private val gameRepository: GameReposi
 }
 
 interface GameUseCase {
-    fun getGamesList(): Flow<List<Game>>
-    fun getDetailGame(id: Int): Flow<Game>
-    fun searchGame(keyword: String): Flow<List<Game>>
-    fun getWishlist(): Flow<List<Game>>
+    fun getGamesList(): Flow<Resource<List<Game>>>
+    fun getDetailGame(id: Int): Flow<Resource<Game>>
+    fun searchGame(keyword: String): Flow<Resource<List<Game>>>
+    fun getWishlist(): Flow<Resource<List<Game>>>
     fun addWishlist(game: Game)
     fun removeWishlist(id: Int)
 }
