@@ -19,4 +19,13 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.logging.interceptor)
     implementation(libs.retrofit)
+
+    // Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+
+    // Security
+    implementation(libs.net.zetetic.android.database.sqlcipher)
+    implementation(libs.androidx.sqlite.ktx)
+
 }

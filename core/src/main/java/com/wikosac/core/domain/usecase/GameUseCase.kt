@@ -3,8 +3,9 @@ package com.wikosac.core.domain.usecase
 import com.wikosac.core.domain.model.Game
 import com.wikosac.core.domain.repository.GameRepository
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class GameUseCaseImpl(private val gameRepository: GameRepository): GameUseCase {
+class GameUseCaseImpl @Inject constructor(private val gameRepository: GameRepository): GameUseCase {
     override fun getGamesList(): Flow<List<Game>> {
         TODO("Not yet implemented")
     }

@@ -5,8 +5,11 @@ import com.wikosac.core.data.source.remote.RemoteDataSource
 import com.wikosac.core.domain.model.Game
 import com.wikosac.core.domain.repository.GameRepository
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class GameRepositoryImpl(
+@Singleton
+class GameRepositoryImpl @Inject constructor(
     private val localDataSource: LocalDataSource,
     private val remoteDataSource: RemoteDataSource
 ): GameRepository {
